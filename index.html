@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ديزل-ك السعودية | خدمات توريد وتوصيل المحروقات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f59e0b; /* لون ذهبي/برتقالي صناعي */
+            --primary-dark: #d97706;
+            --dark: #0f172a;
+            --darker: #020617;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--dark);
+            border-bottom: 2px solid var(--primary);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo i {
+            background: rgba(245, 158, 11, 0.15);
+            padding: 10px;
+            border-radius: 12px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 160px 20px 100px;
+            background: linear-gradient(135deg, rgba(2,6,23,0.95), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1920&q=80') center/cover;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn-whatsapp-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25d366;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp-main:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .services-grid, .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 35px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            color: #fbbf24;
+        }
+
+        /* قسم تحديد الكمية وطلب السريع */
+        .order-section {
+            background: var(--dark);
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: var(--darker);
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        footer {
+            background: var(--darker);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .order-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-gas-pump"></i>
+                ديزل-ك <span>السعودية</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#quick-order">تحديد الكمية والطلب</a></li>
+                <li><a href="#features">لماذا نحن</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>توريد وتوصيل الوقود والمحروقات في <span>المملكة العربية السعودية</span></h1>
+        <p>نلبي احتياجات المصانع، الشركات، والمولدات بأعلى معايير السرعة والأمان وبأسعار تنافسية.</p>
+        <a href="https://wa.me/966500000000?text=سلام عليكم، أرغب بالاستفسار عن توريد ديزل" target="_blank" class="btn-whatsapp-main">
+            <i class="fa-brands fa-whatsapp"></i> تواصل عبر الواتساب فوراً
+        </a>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">خدماتنا <span>الرئيسية</span></h2>
+        <div class="services-grid">
+            <div class="card">
+                <i class="fa-solid fa-truck-droplet"></i>
+                <h3>توريد الديزل للشركات والمصانع</h3>
+                <p>توصيل كميات بكميات كبيرة وبجودة مطابقة للمواصفات السعودية لمواقع مشاريعكم.</p>
+                <a href="https://wa.me/966500000000?text=سلام عليكم، أرغب في طلب عرض سعر لتوريد الديزل للمصانع والشركات" target="_blank" class="card-btn">
+                    طلب عرض سعر <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>تعبئة المولدات الاحتياطية</h3>
+                <p>خدمة سريعة وطارئة لتعبئة وتشغيل مولدات الطاقة في المواقع والمباني السكنية.</p>
+                <a href="https://wa.me/966500000000?text=سلام عليكم، أرغب بطلب خدمة تعبئة مولدات احتياطية" target="_blank" class="card-btn">
+                    اطلب الخدمة <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-file-contract"></i>
+                <h3>عقود التوريد الشهرية والسنوية</h3>
+                <p>عقود مجدولة ومضمونة تضمن استمرارية أعمالك دون أي انقطاع في إمدادات الوقود.</p>
+                <a href="https://wa.me/966500000000?text=سلام عليكم، أرغب بالاستفسار عن عقود التوريد وطلب عرض سعر" target="_blank" class="card-btn">
+                    طلب عرض سعر <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تحديد الكمية والإرسال للواتساب -->
+    <section class="section" id="quick-order">
+        <div class="order-section">
+            <h2 class="section-title" style="margin-bottom: 20px; font-size: 1.8rem;">حدد كميتك وأرسل الطلب فوراً</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">اختر الكمية المطلوبة وحدد موقعك لتنتقل التفاصيل مباشرة إلى واتساب خدمة العملاء.</p>
+            
+            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="name">اسم المنشأة أو العميل:</label>
+                    <input type="text" id="name" class="form-control" placeholder="أدخل اسمك أو اسم شركتك" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">الكمية المطلوبة (باللتر):</label>
+                    <input type="number" id="quantity" class="form-control" placeholder="مثال: 5000 لتر" required min="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">المدينة / الموقع:</label>
+                    <input type="text" id="location" class="form-control" placeholder="مثال: الرياض - المصانع" required>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-brands fa-whatsapp fa-lg"></i> إرسال الطلب عبر الواتساب
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 ديزل-ك السعودية</p>
+    </footer>
+
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const quantity = document.getElementById('quantity').value;
+            const location = document.getElementById('location').value;
+            
+            // استبدل رقم الواتساب أدناه برقمك الفعلي (بدون علامة + أو أصفار دولية زائدة، مثال: 9665xxxxxxxx)
+            const phoneNumber = "966500000000"; 
+            
+            const message = `السلام عليكم، أرغب بطلب توريد ديزل:\n\n` +
+                            `- اسم العميل/المنشأة: ${name}\n` +
+                            `- الكمية المطلوبة: ${quantity} لتر\n` +
+                            `- الموقع/المدينة: ${location}`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
